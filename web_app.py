@@ -23,10 +23,13 @@ if link.strip():
                 # YouTube සහ අනෙකුත් හැම වෙබ් අඩවියකටම ගැලපෙන හොඳම සෙටින්ග්ස්
                 ydl_opts = {
                     'outtmpl': temp_filename,
-    'format': 'bestvideo[ext=mp4]+bestaudio[ext=m4a]/best[ext=mp4]/best',
+    
+    # 🤫 මෙන්න මේ රහස් කේතය (Format) එකතු කරන්න:
+    # මේකෙන් TikTok සර්වර් එකේ තියෙන Watermark නැති 'bytevc1' හෝ හොඳම clean වීඩියෝ එක තෝරාගන්නවා
+    'format': 'bestvideo[ext=mp4][vcodec^=bytevc1]+bestaudio[ext=m4a]/best[ext=mp4]/best',
     'merge_output_format': 'mp4',
-    # 403 Error එක මඟහැරීමට මේ පේළිය එකතු කරන්න
-    'extractor_args': {'youtube': {'player_client': ['ios', 'android']}},
+    
+    'cookiefile': 'cookies.txt',
                 }
                 
                 with yt_dlp.YoutubeDL(ydl_opts) as ytl:
