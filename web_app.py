@@ -23,9 +23,10 @@ if link.strip():
                 # YouTube සහ අනෙකුත් හැම වෙබ් අඩවියකටම ගැලපෙන හොඳම සෙටින්ග්ස්
                 ydl_opts = {
                     'outtmpl': temp_filename,
-                    # YouTube වල 1080p හෝ 720p වීඩියෝ සහ ඕඩියෝ එකතු කිරීමට මෙය උදව් වේ
-                    'format': 'bestvideo[ext=mp4]+bestaudio[ext=m4a]/best[ext=mp4]/best',
-                    'merge_output_format': 'mp4',
+    'format': 'bestvideo[ext=mp4]+bestaudio[ext=m4a]/best[ext=mp4]/best',
+    'merge_output_format': 'mp4',
+    # 403 Error එක මඟහැරීමට මේ පේළිය එකතු කරන්න
+    'extractor_args': {'youtube': {'player_client': ['ios', 'android']}},
                 }
                 
                 with yt_dlp.YoutubeDL(ydl_opts) as ytl:
